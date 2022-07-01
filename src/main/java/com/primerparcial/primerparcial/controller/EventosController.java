@@ -47,14 +47,13 @@ public class EventosController {
     public String guardarEvento (@ModelAttribute Eventos evento){
         eventosService.saveEvento(evento);
         
-        return "redirect:/historial"; //Redirecciona a la página con la tabla
+        return "redirect:/historial";
         
     }
     
-    @GetMapping("/delete/{id}") //Se le pasa el id de la persona que se quiere eliminar
-    public String elimnarEvento (@PathVariable("id") Long idEvento){ //La variable a buscar, long o el tipo que se defina y el nombre de la variable 
-        //Se quita el Model model porque no necesito pasarle nada
-        eventosService.delete(idEvento); //Para devolver la persona que tiene el id que estamos pasando
+    @GetMapping("/delete/{id}")
+    public String elimnarEvento (@PathVariable("id") Long idEvento){
+        eventosService.delete(idEvento);
         return "redirect:/historial";
     }
     
